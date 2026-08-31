@@ -669,7 +669,7 @@
     <h2>Need help? We've got you.</h2>
     <p>Submit a ticket and we'll get back to you within 24 hours.</p>
     <div class="support-form">
-        <form id="supportForm" onsubmit="handleSubmit(event)">
+        <form id="supportForm" action="https://formspree.io/f/mwlklknr" method="POST">
             <div class="form-row">
                 <label for="name">Your name</label>
                 <input type="text" id="name" name="name" required placeholder="Jane Contractor">
@@ -722,16 +722,6 @@
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
-
-    // Form submit
-    function handleSubmit(e) {
-        e.preventDefault();
-        // In production, this would POST to your backend or a service like Formspree
-        const form = document.getElementById('supportForm');
-        const success = document.getElementById('formSuccess');
-        form.style.display = 'none';
-        success.style.display = 'block';
-    }
 </script>
 
 </body>
