@@ -1,0 +1,5 @@
+# robots.txt — routetick.com
+User-agent: *
+Allow: /
+
+Sitemap: https://routetick.com/sitemap.xml
