@@ -3,106 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{var t=localStorage.getItem('rt-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <script defer data-domain="routetick.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
     <title>Privacy Policy — RouteTick</title>
+    <meta name="description" content="RouteTick privacy policy. Your job data stays on your device; we don't run analytics or sell data.">
+    <link rel="canonical" href="https://routetick.com/privacy.html">
+    <meta name="apple-itunes-app" content="app-id=6807180353">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#F7F7F5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0F1115" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* ===== Brand tokens — RouteTick Brand v2 (01-Brand-Guidelines/brand-tokens.css, verbatim) ===== */
         :root {
-            --ink: #1a1a2e;
-            --paper: #f8f7f4;
-            --slate: #4a4a5a;
-            --mist: #e8e6e1;
-            --tick-green: #2d9d5c;
+          --rt-green: #2BA75E;
+          --rt-green-dark: #1F7D47;
+          --rt-green-deep: #12492B;
+          --rt-mint: #DDF4E6;
+          --rt-asphalt: #0F1115;
+          --rt-charcoal: #1C1F26;
+          --rt-slate: #3A3F4B;
+          --rt-steel: #8A909C;
+          --rt-mist: #E6E8EC;
+          --rt-paper: #F7F7F5;
+          --rt-white: #FFFFFF;
+          --rt-blue: #3B7DD8;
+          --rt-blue-soft: #E6EEF8;
+          --rt-orange: #F2873B;
+          --rt-red: #D93636;
+          --rt-font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+          --rt-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+          --rt-radius-sm: 8px; --rt-radius-md: 14px; --rt-radius-lg: 24px; --rt-radius-pill: 999px;
+          --rt-shadow-device: 0 8px 24px rgba(15,17,21,.08);
+          /* semantic (light) */
+          --rt-bg: var(--rt-paper); --rt-surface: var(--rt-white); --rt-ink: var(--rt-asphalt);
+          --rt-text: var(--rt-slate); --rt-text-2: var(--rt-steel); --rt-border: var(--rt-mist);
+          --rt-primary: var(--rt-green); --rt-primary-hover: var(--rt-green-dark);
         }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+          --rt-bg: var(--rt-asphalt); --rt-surface: var(--rt-charcoal); --rt-ink: var(--rt-white);
+          --rt-text: #D9DCE2; --rt-text-2: var(--rt-steel); --rt-border: #2A2E37;
+        } }
+        :root[data-theme="dark"] {
+          --rt-bg: var(--rt-asphalt); --rt-surface: var(--rt-charcoal); --rt-ink: var(--rt-white);
+          --rt-text: #D9DCE2; --rt-text-2: var(--rt-steel); --rt-border: #2A2E37;
+        }
+        /* ===== Site-level derived tokens ===== */
+        :root {
+          --rt-chip-bg: var(--rt-mint); --rt-chip-text: var(--rt-green-dark);
+          --rt-tile: var(--rt-mint);
+          --rt-mock-row: var(--rt-paper);
+          --rt-icon-sun: none; --rt-icon-moon: block;
+          color-scheme: light;
+        }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+          --rt-chip-bg: rgba(43,167,94,.16); --rt-chip-text: #5FD08C; --rt-tile: rgba(43,167,94,.14);
+          --rt-mock-row: #242831; --rt-icon-sun: block; --rt-icon-moon: none; color-scheme: dark;
+        } }
+        :root[data-theme="dark"] {
+          --rt-chip-bg: rgba(43,167,94,.16); --rt-chip-text: #5FD08C; --rt-tile: rgba(43,167,94,.14);
+          --rt-mock-row: #242831; --rt-icon-sun: block; --rt-icon-moon: none; color-scheme: dark;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'DM Sans', system-ui, sans-serif;
-            color: var(--ink);
-            background: var(--paper);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
+        body { font-family: var(--rt-font-body); font-size: 16px; line-height: 1.6; color: var(--rt-text); background: var(--rt-bg); -webkit-font-smoothing: antialiased; }
+        .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+        nav.site-nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: var(--rt-bg); background: color-mix(in srgb, var(--rt-bg) 88%, transparent);
+            -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rt-border);
         }
-        nav {
-            border-bottom: 1px solid var(--mist);
-            padding: 14px 24px;
-        }
-        .nav-inner {
-            max-width: 760px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--ink);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo-mark {
-            width: 24px; height: 24px;
-            background: var(--tick-green);
-            border-radius: 5px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .logo-mark svg { width: 14px; height: 14px; }
-        nav a.back { font-size: 0.9rem; color: var(--slate); text-decoration: none; }
-        nav a.back:hover { color: var(--ink); }
-        .content {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 48px 24px 80px;
-        }
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 8px;
-        }
-        .updated {
-            font-size: 0.88rem;
-            color: var(--slate);
-            margin-bottom: 40px;
-        }
-        h2 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-top: 36px;
-            margin-bottom: 12px;
-        }
-        p, li {
-            font-size: 0.95rem;
-            color: var(--slate);
-            margin-bottom: 12px;
-        }
+        .nav-inner { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--rt-ink); }
+        .logo img { width: 28px; height: 28px; display: block; }
+        .logo .wordmark { height: 22px; width: 116px; color: var(--rt-ink); display: block; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--rt-text); font-size: 15px; font-weight: 500; }
+        .nav-links a:hover { color: var(--rt-ink); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 18px; border-radius: var(--rt-radius-pill); font-size: 15px; font-weight: 600; text-decoration: none; }
+        .nav-links .btn-ink { background: var(--rt-ink); color: var(--rt-bg); }
+        .nav-links .btn-ink:hover { opacity: .9; color: var(--rt-bg); }
+        .content { padding-top: 112px; padding-bottom: 80px; }
+        h1 { font-family: var(--rt-font-display); font-size: clamp(32px, 5vw, 40px); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; color: var(--rt-ink); margin-bottom: 8px; }
+        .updated { font-size: 15px; margin-bottom: 40px; }
+        h2 { font-family: var(--rt-font-display); font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -0.01em; color: var(--rt-ink); margin-top: 36px; margin-bottom: 12px; }
+        p, li { margin-bottom: 12px; }
+        strong { color: var(--rt-ink); font-weight: 600; }
         ul { padding-left: 20px; margin-bottom: 12px; }
         li { margin-bottom: 6px; }
-        a { color: var(--tick-green); }
-        footer {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 24px;
-            border-top: 1px solid var(--mist);
-            font-size: 0.85rem;
-            color: var(--slate);
-        }
+        .content a { color: var(--rt-green-dark); }
+        :root[data-theme="dark"] .content a { color: #5FD08C; }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .content a { color: #5FD08C; } }
+        footer { border-top: 1px solid var(--rt-border); padding: 28px 0 32px; }
+        .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+        .footer-links a { font-size: 15px; color: var(--rt-text); text-decoration: none; }
+        .footer-links a:hover { color: var(--rt-ink); }
+        .footer-copy { font-size: 15px; }
+        .icon-btn { width: 40px; height: 40px; border-radius: var(--rt-radius-pill); display: inline-flex; align-items: center; justify-content: center; color: var(--rt-text); background: transparent; border: 1px solid var(--rt-border); cursor: pointer; }
+        .icon-btn:hover { color: var(--rt-ink); }
+        .icon-btn svg { width: 20px; height: 20px; display: block; }
+        .theme-toggle .ico-sun { display: var(--rt-icon-sun); }
+        .theme-toggle .ico-moon { display: var(--rt-icon-moon); }
+        @media (max-width: 640px) { .nav-links a:not(.btn) { display: none; } }
     </style>
 </head>
 <body>
-<nav>
-    <div class="nav-inner">
+
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="rt-wordmark" viewBox="6 24 476 90">
+        <path d="M10.60 108.0V33.5H39.1Q46.80 33.5 52.7 36.19Q58.7 38.89 62.1 44.19Q65.5 49.5 65.5 57.3Q65.5 64.9 62.0 70.2Q58.5 75.6 52.6 78.3L69.60 108.0H52.2L37.1 81.0H26.1V108.0ZM26.1 67.5H39.2Q44.1 67.5 47.0 64.7Q50.0 61.9 50.0 57.3Q50.0 52.59 47.0 49.8Q44.1 47.0 39.2 47.0H26.1Z" fill="currentColor"/>
+        <path d="M100.80 109.2Q92.7 109.2 86.05 105.5Q79.4 101.8 75.4 95.3Q71.5 88.9 71.5 80.7Q71.5 72.4 75.4 66.0Q79.4 59.59 86.05 55.89Q92.7 52.19 100.80 52.19Q108.9 52.19 115.5 55.89Q122.10 59.59 126.05 66.0Q130.0 72.4 130.0 80.7Q130.0 88.9 126.05 95.3Q122.10 101.8 115.5 105.5Q108.9 109.2 100.80 109.2ZM100.80 95.7Q106.9 95.7 110.7 91.5Q114.5 87.3 114.5 80.7Q114.5 74.19 110.7 69.94Q106.9 65.69 100.80 65.69Q94.7 65.69 90.8 69.94Q87.0 74.19 87.0 80.7Q87.0 87.3 90.8 91.5Q94.7 95.7 100.80 95.7Z" fill="currentColor"/>
+        <path d="M155.9 109.2Q145.9 109.2 140.5 102.9Q135.20 96.7 135.20 86.5V53.4H150.20V85.3Q150.20 90.0 153.0 92.8Q155.8 95.7 160.20 95.7Q164.60 95.7 167.40 92.8Q170.20 90.0 170.20 85.3V53.4H185.20V108.0H171.20V101.3Q169.10 105.3 165.10 107.2Q161.10 109.2 155.9 109.2Z" fill="currentColor"/>
+        <path d="M220.00 108.6Q210.10 108.6 204.65 103.2Q199.20 97.9 199.20 88.3V66.4H190.00V53.4H190.50Q199.20 53.4 199.20 45.0V41.0H214.20V53.4H227.00V66.4H214.20V87.3Q214.20 95.6 223.50 95.6Q224.90 95.6 227.00 95.3V108.0Q225.50 108.2 223.60 108.4Q221.70 108.6 220.00 108.6Z" fill="currentColor"/>
+        <path d="M259.6 109.2Q250.9 109.2 244.5 105.3Q238.10 101.5 234.60 95.0Q231.10 88.5 231.10 80.6Q231.10 72.4 234.7 66.0Q238.4 59.59 244.60 55.89Q250.8 52.19 258.6 52.19Q267.3 52.19 273.3 55.8Q279.3 59.4 282.45 65.4Q285.6 71.5 285.6 79.1Q285.6 80.7 285.45 82.2Q285.3 83.8 284.90 84.9H246.70Q247.3 90.0 250.8 93.1Q254.3 96.2 259.8 96.2Q263.8 96.2 266.6 94.6Q269.5 93.0 271.1 90.2L283.1 95.9Q280.6 101.9 274.3 105.55Q268.0 109.2 259.6 109.2ZM258.6 64.19Q254.20 64.19 251.15 66.69Q248.10 69.19 247.0 73.9H269.70Q269.20 69.6 266.20 66.89Q263.2 64.19 258.6 64.19Z" fill="currentColor"/>
+        <path d="M306.40 108.0V47.0H287.50V33.5H340.50V47.0H321.90V108.0Z" style="fill:var(--rt-green)"/>
+        <path d="M343.5 108.0V53.4H358.5V108.0Z" style="fill:var(--rt-green)"/>
+        <path d="M394.90 109.2Q386.70 109.2 380.15 105.4Q373.6 101.7 369.7 95.2Q365.90 88.7 365.90 80.6Q365.90 72.5 369.70 66.0Q373.5 59.59 380.1 55.89Q386.70 52.19 394.90 52.19Q401.0 52.19 406.20 54.3Q411.40 56.4 415.1 60.1Q418.8 63.9 420.40 69.0L407.40 74.6Q406.0 70.5 402.6 68.1Q399.3 65.69 394.90 65.69Q389.0 65.69 385.20 69.89Q381.40 74.1 381.40 80.7Q381.40 87.3 385.20 91.5Q389.0 95.7 394.90 95.7Q399.40 95.7 402.70 93.30Q406.0 90.9 407.40 86.8L420.40 92.5Q418.90 97.3 415.20 101.1Q411.5 104.9 406.3 107.05Q401.1 109.2 394.90 109.2Z" style="fill:var(--rt-green)"/>
+        <path d="M426.70 108.0V32.3H441.70V73.1L460.20 53.4H478.70L458.90 75.4L478.6 108.0H461.6L447.70 84.7L441.70 91.3V108.0Z" style="fill:var(--rt-green)"/>
+        <path d="M345.3 36.3 L351.2 41.8 L360.8 30.1" fill="none" style="stroke:var(--rt-green)" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+</svg>
+
+<nav class="site-nav" aria-label="Main">
+    <div class="wrap nav-inner">
         <a href="/" class="logo">
-            <span class="logo-mark"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            RouteTick
+            <img src="/img/logo-mark-green.svg" width="28" height="28" alt="">
+            <svg class="wordmark" width="116" height="22" role="img" aria-label="RouteTick"><use href="#rt-wordmark"/></svg>
         </a>
-        <a href="/" class="back">← Back to home</a>
+        <div class="nav-links">
+            <a href="/#features">Features</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="/#support">Support</a>
+            <a href="https://apps.apple.com/us/app/routetick-job-route-manager/id6807180353" class="btn btn-ink" data-event="cta_nav" target="_blank" rel="noopener">Download</a>
+        </div>
     </div>
 </nav>
 
-<div class="content">
+<main class="wrap content">
     <h1>Privacy Policy</h1>
     <p class="updated">Last updated: August 31, 2026</p>
 
@@ -148,8 +196,44 @@
     <h2>Contact Us</h2>
     <p>If you have questions about this Privacy Policy, contact us at:<br>
     <a href="mailto:support@routetick.com">support@routetick.com</a></p>
-</div>
+</main>
 
-<footer>© 2026 RouteTick. All rights reserved.</footer>
+<footer>
+    <div class="wrap footer-row">
+        <div class="footer-copy">© 2026 RouteTick · Built in Tennessee</div>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="mailto:support@routetick.com">support@routetick.com</a>
+            <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+                <svg class="ico-moon"><use href="#i-moon"/></svg>
+                <svg class="ico-sun"><use href="#i-sun"/></svg>
+            </button>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    document.addEventListener('click', function (e) {
+        var el = e.target.closest('[data-event]');
+        if (el) plausible('AppStoreClick', { props: { placement: el.getAttribute('data-event') } });
+    });
+    var root = document.documentElement, toggle = document.getElementById('themeToggle');
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    function current() { return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'); }
+    function label() { toggle.setAttribute('aria-label', current() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'); }
+    toggle.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('rt-theme', next); } catch (err) {}
+        label();
+    });
+    mq.addEventListener('change', label);
+    label();
+})();
+</script>
+
 </body>
 </html>
